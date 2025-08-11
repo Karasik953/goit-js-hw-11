@@ -4,6 +4,9 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const gallery = document.querySelector(".gallery");
 const loader = document.querySelector(".loader");
 
+// Сразу скрываем лоадер при загрузке страницы
+loader.classList.add("is-hidden");
+
 const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250
@@ -15,7 +18,7 @@ export function createGallery(images) {
       <a href="${img.largeImageURL}">
         <img src="${img.webformatURL}" alt="${img.tags}" />
       </a>
-      <p>❤️ ${img.likes} 👁 ${img.views} 💬 ${img.comments} ⬇️ ${img.downloads}</p>
+      <p> ${img.likes}  ${img.views}  ${img.comments}  ${img.downloads}</p>
     </li>
   `).join("");
 
@@ -34,5 +37,3 @@ export function showLoader() {
 export function hideLoader() {
   loader.classList.add("is-hidden");
 }
-
-
